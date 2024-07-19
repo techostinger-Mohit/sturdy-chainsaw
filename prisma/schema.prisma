@@ -14,7 +14,74 @@ datasource db {
 }
 
 model User {
-  id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  email String  @unique
-  name  String?
-}
+    User_id            String     @id @default(auto()) @map("_id) @db.ObjectId   // Primary key
+    Mobile             String
+    Name               String
+    Email              String?
+    Location           String
+    Date_of_birth      DateTime       
+    Gender             String
+    Height             Float
+    Marital_status     String
+    Religion           String
+    Caste              String
+    Employement_status String
+    Employement_type   String
+    Company            String
+    Photos             String     
+    About              String
+    Video_intro        String     
+    Audio_intro        String     
+    Lives_in           String
+    Language           String
+    Habbit             String     
+    Diet_preference    String
+    Education          String
+    Career             String
+    Hobby_and_interest String    
+  }
+  
+  model Subscriptions{
+  Subscription_id   Int
+  User_id           Int
+  Plan_id           Int
+  Start_date        DateTime
+  End_date          DateTime
+  Status            String
+  }
+
+  model Subscription_plans{
+  Plan_id          Int
+  Plan_name        string
+  Plan_description string
+  Plan_price       string
+  Billing_cycle    string
+  }
+
+  model Notifications{
+  Notification_id   number 
+  User_id           number
+  Photo             string
+  Heading           string
+  Activity          string
+  }
+
+  model Messages{
+  Message_id          Int
+  Sender_id           Int
+  Reciever_id         Int
+  Message_data        string
+  Message_date          Int
+  Message_Sending_time  DateTime
+  Message_Recieving_time DateTime
+  Message_Seeing_time     DateTime
+  }
+
+  model Connections{
+  Connection_id       Int 
+  Connection_date     DateTime
+  Sender_user1_id     Int
+  Reciever_user2_id   Int
+  Status              string
+  Request_unsent      Boolean
+  }
